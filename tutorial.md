@@ -58,7 +58,9 @@ For example,
 
 This will result in a hyperlink (if your output format supports it).
 For example, if you hover over the words "equivalence class" in the
-proof below, you will find that it is a link to a Wikipedia article.
+proof below, you will find that it is a link to a Wikipedia article
+(assuming that your PDF viewer supports hyperlinks -- the GitHub PDF
+viewer doesn't).
 
 ```{.logicproof}
 1 | $[a] = [b]$ | Premise
