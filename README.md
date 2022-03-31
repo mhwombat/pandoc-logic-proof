@@ -1,6 +1,6 @@
 # pandoc-logic-proof
 
-A pandoc filter for writing and formatting logic proofs.
+A pandoc filter that provides a Markdown extension for logic proofs.
 
 ## Sample output
 
