@@ -29,6 +29,7 @@ import           Text.Pandoc.Walk         (walk)
 transform :: P.Pandoc -> P.Pandoc
 transform = walk formatProofs
 
+-- | Exported for use by the executable.
 formatProofs :: P.Block -> P.Block
 formatProofs x@(P.CodeBlock (_,cs,_) s)
   | null cs                = x
