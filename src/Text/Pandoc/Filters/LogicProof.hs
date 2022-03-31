@@ -1,12 +1,33 @@
+{-|
+Module      : LogicProof
+Description : Provides a way to write locig proofs in Markdown.
+Copyright   : (c) Amy de Buitléir, 2020-2022
+License     : BSD--3
+Maintainer  : amy@nualeargais.ie
+Stability   : experimental
+Portability : POSIX
+
+See <https://github.com/mhwombat/pandoc-logic-proof> for information
+on how to use this filter.
+-}
+
 {-# LANGUAGE OverloadedStrings #-}
+
+module Text.Pandoc.Filters.LogicProof
+  (
+    transform,
+    formatProofs
+  ) where
 
 import           Data.Foldable            (foldl')
 import qualified Data.Text                as T
 import qualified Text.Pandoc              as P
-import           Text.Pandoc.JSON         (toJSONFilter)
+import           Text.Pandoc.Walk         (walk)
 
-main :: IO ()
-main = toJSONFilter formatProofs
+
+-- | A transformation that can be used with Hakyll.
+transform :: P.Pandoc -> P.Pandoc
+transform = walk formatProofs
 
 formatProofs :: P.Block -> P.Block
 formatProofs x@(P.CodeBlock (_,cs,_) s)
