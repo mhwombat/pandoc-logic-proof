@@ -2,6 +2,6 @@ let
   pkgs = import <nixpkgs> { };
 in 
   pkgs.haskellPackages.developPackage {
-    root = ./.;
+    root = builtins.path { path = ./.; name = "pandoc-logic-proof"; };
   }
 
