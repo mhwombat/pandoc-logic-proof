@@ -19,10 +19,10 @@ module Text.Pandoc.Filters.LogicProof
     formatProofs
   ) where
 
-import           Data.Foldable            (foldl')
-import qualified Data.Text                as T
-import qualified Text.Pandoc              as P
-import           Text.Pandoc.Walk         (walk)
+import Data.Foldable    (foldl')
+import Data.Text        qualified as T
+import Text.Pandoc      qualified as P
+import Text.Pandoc.Walk (walk)
 
 
 -- | A transformation that can be used with Hakyll.
@@ -72,7 +72,7 @@ removePara (P.Para xs) = P.Plain xs
 removePara x           = x
 
 penultimate :: [a] -> a
-penultimate = head . reverse . init
+penultimate = last . init
 
 indent :: Int -> T.Text -> T.Text
 indent 0 s = s
@@ -87,7 +87,7 @@ blocksToCell
 textToCell :: T.Text -> P.Cell
 textToCell t
   = P.Cell P.nullAttr P.AlignDefault (P.RowSpan 1) (P.ColSpan 1)
-      $ [ P.Plain [P.Str t] ]
+      [ P.Plain [P.Str t] ]
 
 parseProof :: T.Text -> Proof
 parseProof = map (map trim  . T.splitOn "|") . T.lines
@@ -99,7 +99,7 @@ renumber proofRows = map (fillInReferences refs) proofRows'
 
 renumber' :: Proof -> Proof
 renumber' = zipWith f [(1 :: Int)..]
-  where f n row = (T.pack $ show n) : row
+  where f n row = T.pack (show n) : row
 
 makeLookupTable :: Proof -> [(T.Text, T.Text)]
 makeLookupTable = map f
@@ -108,7 +108,7 @@ makeLookupTable = map f
 
 fillInReferences :: [(T.Text, T.Text)] -> ProofRow -> ProofRow
 fillInReferences refs (label : _ : fields)
-  = (label `T.append` ".") : (map (multiReplace refs) fields)
+  = (label `T.append` ".") : map (multiReplace refs) fields
 fillInReferences _ _ = error "short row in logic proof"
 
 multiReplace :: [(T.Text, T.Text)] -> T.Text -> T.Text

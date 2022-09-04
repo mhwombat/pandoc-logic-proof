@@ -2,6 +2,8 @@ result
 dist
 dist-*
 cabal-dev
+.envrc
+.textadept_session
 *.~undo-tree~
 *.o
 *.hi

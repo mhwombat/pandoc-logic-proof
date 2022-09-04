@@ -10,8 +10,8 @@ Portability : POSIX
 See <https://github.com/mhwombat/pandoc-logic-proof> for information
 on how to use this filter.
 -}
-import Text.Pandoc.Filters.LogicProof  (formatProofs)
-import Text.Pandoc.JSON                (toJSONFilter)
+import Text.Pandoc.Filters.LogicProof (formatProofs)
+import Text.Pandoc.JSON               (toJSONFilter)
 
 main :: IO ()
 main = toJSONFilter formatProofs
