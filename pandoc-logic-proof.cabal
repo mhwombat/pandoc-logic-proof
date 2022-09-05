@@ -2,7 +2,7 @@ cabal-version:      3.0
 name:               pandoc-logic-proof
 version:            0.2.0.2
 description:        Pandoc Markdown filter to format logic proofs using Markdown.
-synopsis: 
+synopsis:
     A pandoc filter that provides a Markdown extension for logic proofs.
 license:            BSD-3-Clause
 license-file:       LICENSE
