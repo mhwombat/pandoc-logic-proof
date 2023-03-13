@@ -1,5 +1,7 @@
 # Changelog
 
+0.2.0.3 Improved error message, updated dependencies.
+
 0.2.0.2 Reformatted source code.
 
 0.2.0.0 Factored out transform into a separate library for use with Hakyll.
