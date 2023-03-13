@@ -132,8 +132,9 @@ readDefaults = P.def { P.readerStandalone = True,
                        P.readerExtensions = P.pandocExtensions }
 
 parseBlocks :: T.Text -> [P.Block]
-parseBlocks s = bs
-  where (Right (P.Pandoc _ bs)) = P.runPure $ P.readMarkdown readDefaults s
+parseBlocks s = f . P.runPure $ P.readMarkdown readDefaults s
+  where f (Right (P.Pandoc _ bs)) = bs
+        f (Left e) = error $ "readMarkdown failed: " ++ show e
 
 defaultColSpec :: P.ColSpec
 defaultColSpec = (P.AlignDefault, P.ColWidthDefault)
