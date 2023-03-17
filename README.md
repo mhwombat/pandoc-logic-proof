@@ -37,7 +37,7 @@ in
 mkShell {
   buildInputs = [
     pandoc
-    pandoc-include-plus
+    pandoc-logic-proof
     # add any other software you want to use in the shell.
   ];
 }
