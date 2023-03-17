@@ -1,7 +1,7 @@
 {-|
 Module      : LogicProof
-Description : Provides a way to write locig proofs in Markdown.
-Copyright   : (c) Amy de Buitléir, 2020-2022
+Description : Provides a way to write logic proofs in Markdown.
+Copyright   : (c) 2020-2023 Amy de Buitléir
 License     : BSD--3
 Maintainer  : amy@nualeargais.ie
 Stability   : experimental
