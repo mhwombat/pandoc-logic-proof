@@ -2,7 +2,9 @@ cabal-version:   3.0
 name:            pandoc-logic-proof
 version:         0.2.0.4
 synopsis:        A pandoc filter that provides a Markdown extension for logic proofs.
-description:     Please see the README at <https://github.com/mhwombat/pandoc-logic-proof#readme>
+description:
+  For more information and a tutorial on how to use this package,
+  please see the README at <https://github.com/mhwombat/pandoc-logic-proof#readme>.
 homepage:        https://github.com/mhwombat/pandoc-logic-proof
 bug-reports:     https://github.com/mhwombat/pandoc-logic-proof/issues
 license:         BSD-3-Clause
