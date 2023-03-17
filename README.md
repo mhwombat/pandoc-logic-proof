@@ -1,21 +1,54 @@
 # pandoc-logic-proof
 
 A pandoc filter that provides a Markdown extension for logic proofs.
+A [**tutorial**](tutorial.pdf) is available.
 
-## Sample output
+|  PDF sample  |  HTML sample  |
+|:------------:|:-------------:|
+| ![](pdf.png) | ![](html.png) |
 
-Sample PDF output:
 
-![](pdf.png)
+## Quick start
 
-Sample HTML output for the same proof:
+If you already know how to use cabal packages or Nix flakes,
+and how to use Pandoc filters, you can skip directly to the
+[**tutorial**](tutorial.pdf).
 
-![](html.png)
+## Installation
 
+This package is available from Hackage, or as a Nix flake.
+
+### From Hackage
+
+To install from Hackage, use [cabal install](https://cabal.readthedocs.io/en/stable/cabal-commands.html#cabal-install).
+The package name is `pandoc-logic-proof`.
+
+### As a Nix flake
+
+Note: Flakes must be [enabled](https://nixos.wiki/wiki/Flakes) in your Nix or NixOS installation.
+
+One way to use the Nix flake is to create a `shell.nix` with pandoc and this package, like so:
+
+~~~
+with (import <nixpkgs> {});
+let
+  pandoc-include-plus = (builtins.getFlake git+https://codeberg.org/mhwombat/pandoc-include-plus).packages.${builtins.currentSystem}.default;
+in
+mkShell {
+  buildInputs = [
+    pandoc
+    pandoc-include-plus
+    # add any other software you want to use in the shell.
+  ];
+}
+~~~
+
+Enter the shell using `nix-shell`.
+Now you can use the commands below.
 
 ## Usage
 
-The [tutorial](tutorial.pdf) explains how to write proofs using the Markdown
+The [**tutorial**](tutorial.pdf) explains how to write proofs using the Markdown
 syntax extensions provided by this filter.
 Then, you can format your document either using pandoc directly,
 or through Hakyll.
