@@ -23,7 +23,7 @@ This package is available from Hackage, or as a Nix flake.
 To install from Hackage, use [cabal install](https://cabal.readthedocs.io/en/stable/cabal-commands.html#cabal-install).
 The package name is `pandoc-logic-proof`.
 
-### As a Nix flake
+### In a Nix shell
 
 Note: Flakes must be [enabled](https://nixos.wiki/wiki/Flakes) in your Nix or NixOS installation.
 
@@ -43,8 +43,22 @@ mkShell {
 }
 ~~~
 
-Enter the shell using `nix-shell`.
-Now you can use the commands below.
+Enter the shell using `nix-shell`, and this package will be available for use.
+
+### In a Nix flake
+
+Add this package to your `flake.nix`:
+
+```nix
+{
+  inputs.pandoc-logic-proof.url = "github:mhwombat/pandoc-logic-proof";
+
+  outputs = { self, pandoc-logic-proof }: {
+    # Use in your outputs
+  };
+}
+
+```
 
 ## Usage
 
