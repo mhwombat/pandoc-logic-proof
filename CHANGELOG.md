@@ -1,5 +1,7 @@
 # Changelog
 
+0.2.0.5 Updated dependencies.
+
 0.2.0.4 Packaged as a Nix flake.
 
 0.2.0.3 Improved error message, updated dependencies.
